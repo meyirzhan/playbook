@@ -1,0 +1,16 @@
+---
+- name: Install Apach
+  hosts: all
+  become: true
+  tasks:
+  - name: Update package manager
+    apt:
+      update_cache: true
+  - name: Install Apache
+    apt:
+      name: apache2
+      state: present
+  - name: Start Apache
+    service:
+      name: apache2
+      state: startede
