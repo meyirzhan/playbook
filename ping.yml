@@ -1,6 +1,6 @@
 ---
 - name: Ping hosts
-  hosts: windows
+  hosts: dc
   gather_facts: no
 
   tasks:
