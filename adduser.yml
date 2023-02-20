@@ -1,0 +1,25 @@
+- name: Add new user to Active Directory
+  hosts: dc
+  vars:
+    ad_server: "cyberlabs.local"
+    ad_admin_username: "Administrator"
+    ad_admin_password: "Cyberlabs2022"
+    ad_ou: "IT" # the OU where you want to add the new user
+    ad_user: "A.manzhol"
+    ad_password: "Amanzhol2022"
+    ad_firstname: "Amanzhol"
+    ad_lastname: "N"
+    ad_email: "A.manzhol@cyberlabs.local"
+  tasks:
+    - name: Create new user
+      win_domain_user:
+        name: "{{ ad_user }}"
+        password: "{{ ad_password }}"
+        given_name: "{{ ad_firstname }}"
+        surname: "{{ ad_lastname }}"
+        email: "{{ ad_email }}"
+        state: present
+        domain_username: "{{ ad_admin_username }}"
+        domain_password: "{{ ad_admin_password }}"
+        domain_server: "{{ ad_server }}"
+        ou: "{{ ad_ou }}"
