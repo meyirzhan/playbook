@@ -1,6 +1,6 @@
 ---
 - name: Install Notepad++ on Windows
-  hosts: webservers
+  hosts: windows
   gather_facts: no
 
   tasks:
