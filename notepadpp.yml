@@ -1,0 +1,23 @@
+---
+- name: Install Notepad++ on Windows
+  hosts: webservers
+  gather_facts: no
+
+  tasks:
+    - name: Download Notepad++ installer
+      win_get_url:
+        url: https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.4.9/npp.8.4.9.Installer.x64.exe
+        dest: C:\Users\meir\Documents\npp.8.3.2.Installer.x64.exe
+
+    - name: Install Notepad++
+      win_package:
+        path: C:\Users\meir\Documents\npp.8.3.2.Installer.x64.exe
+        product_id: "{6F029D6E-696C-46D6-AF35-852F50C6BAAC}"
+        arguments: "/S"
+      register: install_result
+
+    - name: Check if Notepad++ installed successfully
+      assert:
+        that:
+          - install_result.rc == 0
+          - "'Notepad++' in install_result.stdout"
