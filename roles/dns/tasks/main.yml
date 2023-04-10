@@ -1,0 +1,6 @@
+---
+- name: Create user
+  win_user:
+    name: "Meirzhan"
+    password: "Meirzhan012"
+    state: present
