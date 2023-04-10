@@ -1,7 +1,7 @@
-tasks:
-  - name: Set DNS Address
-    win_dns_client:
-      adapter_names: '*'
-      ipv4_addresses:
-        - 8.8.8.8
-    log_path: C:\dns_log.txt
+  tasks:
+    - name: Set DNS Address
+      win_dns_client:
+        adapter_names: '*'
+        ipv4_addresses:
+          - 8.8.8.8
+        log_path: C:\dns_log.txt
