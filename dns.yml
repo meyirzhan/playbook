@@ -1,0 +1,6 @@
+---
+- name: Set Dns Address
+  hosts: all
+  become: false
+  gather_facts: false
+  roles: dns
