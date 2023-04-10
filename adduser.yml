@@ -1,6 +1,5 @@
 - name: Add user with role
   hosts: all
-  become: true
   gather_facts: false
 
   roles:
