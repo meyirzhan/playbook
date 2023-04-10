@@ -2,5 +2,5 @@
 - name: Create user
   win_user:
     name: "Meirzhan"
-    password: "Meirzhan20123!@"
+    password: "CyberCatson20123!@"
     state: present
